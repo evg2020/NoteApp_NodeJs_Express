@@ -19,8 +19,9 @@ router.get('/', async (req, res) => {
 //add posts
 router.post('/', async (req, res) => {
   const posts = await loadCollections();
-  await posts.insertOne({
-    text: req.body.text,
+  await posts.insertOne({    
+    task:req.body.task,
+    comment:req.body.comment,
     createdAt: new Date(),
   });
   res.status(201).send();
